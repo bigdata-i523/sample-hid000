@@ -5,10 +5,12 @@ Remove all sections that you have not yet created a directory in github with so 
 
 # Owner
 
+'''
    owner:
       hid: 000
       name: Gregor von Laszewski
       url: https://github.com/bigdata-i523/sample-hid000
+'''
 
 # Paper 1
 
