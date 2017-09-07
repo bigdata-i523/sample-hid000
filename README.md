@@ -1,16 +1,16 @@
 # Comments
 
-Mind the indentations
+Mind the ```quotes and do not forget them```
 Remove all sections that you have not yet created a directory in github with so our automated scripts do not fail. Only add them if the 
 
 # Owner
 
-'''
-   owner:
-      hid: 000
-      name: Gregor von Laszewski
-      url: https://github.com/bigdata-i523/sample-hid000
-'''
+```
+owner:
+    hid: 000
+    name: Gregor von Laszewski
+    url: https://github.com/bigdata-i523/sample-hid000
+```
 
 # Paper 1
 
