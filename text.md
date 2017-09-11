@@ -1,7 +1,7 @@
 
 # Logistic
 
-* 08/21/17 Read the entire class overview section 
+* 08/29/17 Read the entire class overview section 
 
 # Theory
 
@@ -16,3 +16,7 @@
 
 * 08/26/17 Installed and Learned aquamacs
 * 00/01/17 Installed and Learned jabref
+
+# Attended Online Meetings
+
+* 09/11/17 Attended meeting on jabref, latex, sharelatex, github
