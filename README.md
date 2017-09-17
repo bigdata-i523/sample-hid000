@@ -51,12 +51,12 @@ We will assign new pids for you when we approve the project and reports
 Just use one type and delete the line with 
 
 ```
-paper2:
+project:
    type: project
    type: report
    author: 
    - Gregor von Laszewski
-   hid:
+   pid:
    - 000
    title: Benchmarking a BigData Docker deployment
    abstract: This paper showcases tis and that and the other 
