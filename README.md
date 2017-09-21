@@ -52,10 +52,11 @@ paper2:
 We will assign new pids for you when we approve the project and reports   
 Just use one type and delete the line with 
 
+* Obviously, if you write a report instead of a project change *type: project* to *type: report*
+
 ```
 project:
    type: project
-   type: report
    author: 
    - Gregor von Laszewski
    pid:
