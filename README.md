@@ -1,6 +1,8 @@
 # Comments
 
-* Mind the ```quotes and do not forget them```. Please do not delete the quotes, and keep the #
+* View the Raw content to copy the README
+* Mind the ```quotes``` and do not  delete them.
+* keep the #
 * Remove all sections that you have not yet worked on. 
 * Obviously your hid does not have a sample- in front of it, so you need to remove that from your README
 
