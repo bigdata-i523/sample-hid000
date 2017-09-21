@@ -24,7 +24,7 @@ paper1:
    - 001
    title: This is my paper about xyz
    abstract: This paper showcases this and that and the other
-   url: https://github.com/bigdata-i523/sample-hid000/paper1/paper1.pdf
+   url: https://github.com/bigdata-i523/sample-hid000/paper1/report.pdf
    type: latex
    status: in progress
 ```
@@ -39,7 +39,7 @@ paper2:
    - 000
    title: This is my paper about the other abc
    abstract: This paper showcases this and that and the other in regards to abc
-   url: https://github.com/bigdata-i523/sample-hid000/paper2/paper2.pdf   
+   url: https://github.com/bigdata-i523/sample-hid000/paper2/report.pdf   
    type: word
    status: in progress
 ```
