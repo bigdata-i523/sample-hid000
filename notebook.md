@@ -3,6 +3,10 @@
 * 08/21/17 Residential Meeting attended 
 * 09/21/17 Online Meeting attended 
 
+# Weeks with no progress
+
+* 12/23/17 - 12/24/17 No work due to Christmas - this is just ana example so do not out it in your notebook
+
 # Logistic
 
 * 08/21/17 Read the entire class overview section 
