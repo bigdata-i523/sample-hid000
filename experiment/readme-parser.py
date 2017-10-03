@@ -57,7 +57,8 @@ try:
     pprint (d)
 
     banner('yaml')
-    yaml.dump(d, sys.stdout)
+    print (yaml.dump(d, default_flow_style=False))
+    
     
     banner('json')
     print(json.dumps(d, indent=4))
