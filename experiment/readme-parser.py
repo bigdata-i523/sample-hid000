@@ -47,8 +47,9 @@ if '\t' in s:
     print(s.replace("\t", "<TAB>"))
 
 try:
-    #
-    #
+
+    banner('text')
+    print (s)
     
     d = yaml.load(s)
 
