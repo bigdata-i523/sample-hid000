@@ -11,8 +11,8 @@ def on_message(client, userdata, message):
 def on_log(client, userdata, level, buf):
     print("log: ",buf)
 
-    
-broker_address="test.mosquitto.org"
+broker_address="localhost"    
+# broker_address="test.mosquitto.org"
 # broker_address="broker.hivemq.com"
 # broker_address="iot.eclipse.org"
 
