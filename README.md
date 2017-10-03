@@ -29,7 +29,8 @@ paper1:
    abstract: This paper showcases this and that and the other
    url: https://github.com/bigdata-i523/sample-hid000/paper1/report.pdf
    type: latex
-   status: in progress
+   status: 10%
+   chapter: TBD   
 ```
    
 # Paper 2
@@ -44,7 +45,8 @@ paper2:
    abstract: This paper showcases this and that and the other in regards to abc
    url: https://github.com/bigdata-i523/sample-hid000/paper2/report.pdf   
    type: word
-   status: in progress
+   status: 10%
+   chapter: TBD
 ```
 
 # Project 
