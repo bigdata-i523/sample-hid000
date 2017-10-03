@@ -1,6 +1,12 @@
 import yaml
+import json
 import sys
 from pprint import pprint
+
+def banner(msg):
+    print (79 * '#')
+    print ('#', msg)
+    print (79 * '#')
 
 # variables/counters declaration
 in_yaml = False
@@ -38,11 +44,24 @@ s = '\n'.join(content)
 
 if '\t' in s:
     print("ERROR: your file contains a TAB")
+    print(s.replace("\t", "<TAB>"))
 
 try:
+    #
+    #
+    
     d = yaml.load(s)
+
+    banner('dict')
+    pprint (d)
+
+    banner('yaml')
+    yaml.dump(d, sys.stdout)
+    
+    banner('json')
+    print(json.dumps(d, indent=4))
+    
 except Exception as e:
     print ("ERROR: you have a problem in your file")
     print (e)
 
-pprint (d)
