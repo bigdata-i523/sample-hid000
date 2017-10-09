@@ -8,18 +8,18 @@ all:
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE}
 
+review-create:
+	cp -i report.tex review.tex
+
 insert:
-	#echo '\\begin{itemize}' > bibtex-error.tex
-	#bibtex -terse ${REVIEW} | sed -e 's/^/\\item /'  >> bibtex-error.tex
-	#echo '\end{itemize}' >> bibtex-error.tex
 	rm  -f bibtex-error.tex
 	bibtex -terse ${REVIEW} | sed -e 's/^/\\todo[inline]{/'  | sed -e 's/.*/&}/'  > bibtex-error.tex
-	sed 's/\end{document}/\input{bibtex-error}\\end{document}/g' < ${REVIEW}.tex > tmp.tex
+	sed 's/^\\end{document}/\\input{bibtex-error}\\input{issues}\\end{document}/g' < ${REVIEW}.tex > tmp.tex
 	mv tmp.tex ${REVIEW}.tex
 	tail ${REVIEW}.tex
 
 
-review:
+review-bibtex:
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	make -f Makefile insert
