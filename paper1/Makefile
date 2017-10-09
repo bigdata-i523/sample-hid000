@@ -1,11 +1,20 @@
 FILE=report
 FLAGS=-interaction nonstopmode -halt-on-error -file-line-error 
+REVIEW=review
 
 all:
 	pdflatex ${FLAGS} ${FILE}
 	bibtex ${FILE}
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE}
+
+review:
+	pdflatex ${FLAGS} ${REVIEW}
+	bibtex ${REVIEW}
+	pdflatex ${FLAGS} ${REVIEW}
+	pdflatex ${FLAGS} ${REVIEW}
+	open ${REVIEW}.pdf
+	bibtex ${REVIEW} | sed -e 's/^/\* [ ] /'
 
 pack:
 	rm -rf ${FILE}
