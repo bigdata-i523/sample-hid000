@@ -14,7 +14,8 @@ review-create:
 
 insert:
 	rm  -f bibtex-error.tex
-	bibtex -terse ${REVIEW} | sed -e 's/^/\\todo[inline]{/'  | sed -e 's/.*/&}/'  > bibtex-error.tex
+	echo '\\section{Bibtex Issues}' > bibtex-error.tex
+	bibtex -terse ${REVIEW} | sed -e 's/^/\\todo[inline]{/'  | sed -e 's/.*/&}/'  >> bibtex-error.tex
 	sed 's/^\\end{document}/\\input{bibtex-error}\\input{issues}\\end{document}/g' < ${REVIEW}.tex > tmp.tex
 	mv tmp.tex ${REVIEW}.tex
 	tail ${REVIEW}.tex
