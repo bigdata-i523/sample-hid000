@@ -8,13 +8,27 @@ all:
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE}
 
+insert:
+	#echo '\\begin{itemize}' > bibtex-error.tex
+	#bibtex -terse ${REVIEW} | sed -e 's/^/\\item /'  >> bibtex-error.tex
+	#echo '\end{itemize}' >> bibtex-error.tex
+	rm  -f bibtex-error.tex
+	bibtex -terse ${REVIEW} | sed -e 's/^/\\todo[inline]{/'  | sed -e 's/.*/&}/'  > bibtex-error.tex
+	sed 's/\end{document}/\input{bibtex-error}\\end{document}/g' < ${REVIEW}.tex > tmp.tex
+	mv tmp.tex ${REVIEW}.tex
+	tail ${REVIEW}.tex
+
+
 review:
+	pdflatex ${FLAGS} ${REVIEW}
+	bibtex ${REVIEW}
+	make -f Makefile insert
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
 	open ${REVIEW}.pdf
-	bibtex ${REVIEW} | sed -e 's/^/\* [ ] /'
+	bibtex -terse ${REVIEW} | sed -e 's/^/\* [ ] /' 
 
 pack:
 	rm -rf ${FILE}
