@@ -10,6 +10,7 @@ all:
 
 review-create:
 	cp -i report.tex review.tex
+	make -f Makefile review-fetch
 
 insert:
 	rm  -f bibtex-error.tex
@@ -18,8 +19,10 @@ insert:
 	mv tmp.tex ${REVIEW}.tex
 	tail ${REVIEW}.tex
 
+review-fetch:
+	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
 
-review-bibtex:
+review:
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	make -f Makefile insert
