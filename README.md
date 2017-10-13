@@ -43,7 +43,7 @@ paper2:
    - 000
    title: This is my paper about the other abc
    abstract: This paper showcases this and that and the other in regards to abc
-   url: https://github.com/bigdata-i523/sample-hid000/paper2/report.pdf   
+   url: https://github.com/bigdata-i523/sample-hid000/paper2/report.pdf
    type: word
    status: 10%
    chapter: TBD
