@@ -1,18 +1,9 @@
 \documentclass[sigconf]{acmart}
 
-\usepackage{hyperref}
-
-\usepackage{endfloat}
-\renewcommand{\efloatseparator}{\mbox{}} % no new page between figures
-
-\usepackage{booktabs} % For formal tables
-
-\settopmatter{printacmref=false} % Removes citation information below abstract
-\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
-\pagestyle{plain} % removes running headers
+\input{format/i523}
 
 \begin{document}
-\title{Big Data and Edge Computing}
+\title{Big Data for Edge Computing}
 
 
 \author{Ben Trovato}
@@ -39,15 +30,16 @@
 \author{Gregor von Laszewski}
 \affiliation{%
   \institution{Indiana University}
-  \streetaddress{Smith Research Center\newline
-                 2805 E. 10th St, Suite 150}
-  \city{Bloomington, IN 47408} 
+  \streetaddress{Smith Research Center}
+  \city{Bloomington} 
+  \state{IN} 
+  \postcode{47408}
   \country{USA}}
 \email{laszewski@gmail.com}
 
 
 % The default list of authors is too long for headers}
-\renewcommand{\shortauthors}{B. Trovato et al.}
+\renewcommand{\shortauthors}{G. v. Laszewski}
 
 
 \begin{abstract}
@@ -56,35 +48,96 @@ somewhat loosely, to the formatting guidelines for
 ACM SIG Proceedings.
 \end{abstract}
 
-\keywords{ACM proceedings, \LaTeX, text tagging}
+\keywords{Big Data, Edge Computing i523}
 
 
 \maketitle
 
+
+
 \section{Introduction}
 
-The \textit{proceedings} are the records of a
-conference. ACM seeks to give these
-conference by-products a uniform, high-quality appearance.  To do
-this, ACM has some rigid requirements for the format of the
-proceedings documents: there is a specified format (balanced double
-columns), a specified set of fonts (Arial or Helvetica and Times
-Roman) in certain specified sizes, a specified live area, centered on
-the page, specified size of margins, specified column width and gutter
-size \cite{abril07}.
+Put here an introduction about your topic. 
+We just need one sample refernce so the paper compiles in LaTeX so we
+put it here \cite{editor00}.
 
-\section{Conlusion}
+\section{figures}
 
-I Like \LaTeX.
+In Figure \ref{f:fly} we show a fly. Please note that because we use
+just columwidth that the size of the figure will change to the
+columnwidth of the paper once we change the layout to final. CHnaging
+the layout to final should not be done by you. All figures will be
+listed at the end.
+
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/fly.pdf}
+  \caption{Example caption}\label{f:fly}
+\end{figure}
+
+When copying the example, please do not check in the images from the
+examples into your images directory as you will not need them for your
+paper. Instead use images that you like to include. If you do not have
+any images, do not dreate the images folder.
+
+\section{Tables}
+
+In case you need to create tables, you can do this with online tools
+(if you do not mind sharing your data) such as
+\url{https://www.tablesgenerator.com/} or other such tools (please
+google for them). They even allow you to manage tables as CSV.
+
+or generate them by hand while using the provided template in Table\ref{t:mytable}. Not ethat
+the caption is before the tabular environment.
+
+\begin{table}[htb]
+\centering
+\caption{My caption}
+\label{t:mytabble}
+\begin{tabular}{lll}
+1 & 2 & 3 \\
+\hline
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{tabular}
+\end{table}
+
+\section{Long example}
+
+If you like to see a more elaborate example, please look at
+report-long.tex. 
+
+\section{Conclusion}
+
+Put here an conclusion. Conlcusions and abstracts must not have any
+citations in the section.
 
 
 \begin{acks}
 
-  The authors would like to thank 
+  The authors would like to thank Dr. Gregor von Laszewski for his
+  support and suggestions to write this paper.
 
 \end{acks}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
+
+\appendix
+
+We include an appendix with common issues that we see when students
+submit papers. One particular important issue is not to use the
+underscore in bibtex labels. Sharelatex allows this, but the
+proceedings script we have does not allow this.
+
+When you submit the paper you need to address each of the items in the
+issues.tex file and verify that you have done them. Please do this
+only at the end once you have finished writing the paper. To d this
+cange TODO with DONE. However if you check something on with DONE, but
+we find you actually have not executed it correcty, you will receive
+point deductions. Thus it is important to do this correctly and not
+just 5 minutes before the deadline. It is better to do a late
+submission than doing the check in haste. 
+
+\input{issues}
 
 \end{document}
