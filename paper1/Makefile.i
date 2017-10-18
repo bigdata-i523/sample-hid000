@@ -8,9 +8,9 @@ all:
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE}
 
-#review-create:
-#	cp -i report.tex review.tex
-#	make -f Makefile review-fetch
+review-create:
+	cp -i report.tex review.tex
+	make -f Makefile review-fetch
 
 insert:
 	rm  -f bibtex-error.tex
@@ -20,8 +20,8 @@ insert:
 	mv tmp.tex ${REVIEW}.tex
 	tail ${REVIEW}.tex
 
-#review-fetch:
-#	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
+review-fetch:
+	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
 
 review:
 	pdflatex ${FLAGS} ${REVIEW}
@@ -69,18 +69,18 @@ up:
 	git commit -a
 	git push
 
-#publish:
-#	@echo "==============================================================="
-#	@echo "publish ${FILE}.pdf -> http://cyberaide.github.io/papers/${FILE}.pdf" 
-#	@echo "==============================================================="
-#	cp ${FILE}.pdf /tmp
-#	cd ..; git checkout gh-pages
-#	cp /tmp/${FILE}.pdf .
-#	git add ${FILE}.pdf
-#	git commit -m "adding new version of ${FILE}.pdf" ${FILE}.pdf
-#	git push
-#	cd bigdata
-#	git checkout master
+publish:
+	@echo "==============================================================="
+	@echo "publish ${FILE}.pdf -> http://cyberaide.github.io/papers/${FILE}.pdf" 
+	@echo "==============================================================="
+	cp ${FILE}.pdf /tmp
+	cd ..; git checkout gh-pages
+	cp /tmp/${FILE}.pdf .
+	git add ${FILE}.pdf
+	git commit -m "adding new version of ${FILE}.pdf" ${FILE}.pdf
+	git push
+	cd bigdata
+	git checkout master
 
 
 bib-extract:
