@@ -36,6 +36,14 @@ insert:
 #	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
 
 review:
+	rm -rf ~/tmp-review
+	mkdir -p ~/tmp-review
+	cp -r * ~/tmp-review
+	cd ~/tmp-review; make -f Makefile review-pdf
+	cp ~/tmp-review/review.pdf review-local.pdf
+	open ${REVIEW}-local.pdf
+
+review-pdf:
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	make -f Makefile insert
@@ -43,8 +51,8 @@ review:
 	bibtex ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
-	open ${REVIEW}.pdf
 	bibtex -terse ${REVIEW} | sed -e 's/^/\* [ ] /' 
+
 
 pack:
 	rm -rf ${FILE}
