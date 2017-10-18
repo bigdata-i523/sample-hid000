@@ -39,9 +39,12 @@ review:
 	rm -rf ~/tmp-review
 	mkdir -p ~/tmp-review
 	cp -r * ~/tmp-review
+	cp report.tex ~/tmp-review/review.tex
+	cd ~/tmp-review; make -f Makefile insert
 	cd ~/tmp-review; make -f Makefile review-pdf
 	cp ~/tmp-review/review.pdf review-local.pdf
 	open ${REVIEW}-local.pdf
+	rm -rf ~/tmp-review
 
 review-pdf:
 	pdflatex ${FLAGS} ${REVIEW}
@@ -52,7 +55,6 @@ review-pdf:
 	pdflatex ${FLAGS} ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex -terse ${REVIEW} | sed -e 's/^/\* [ ] /' 
-
 
 pack:
 	rm -rf ${FILE}
