@@ -1,7 +1,17 @@
 FILE=report
 FLAGS=-interaction nonstopmode -halt-on-error -file-line-error 
 REVIEW=review
+DEFAULT=$(FILE)
+  
+UNAME := $(shell uname)
 
+ifeq ($(UNAME), Darwin)
+OPEN=open
+endif
+ifeq ($(UNAME), Linux)
+OPEN=xdg-open
+endif
+  
 all:
 	pdflatex ${FLAGS} ${FILE}
 	bibtex ${FILE}
@@ -51,7 +61,7 @@ clean:
 	rm -rf _region_.*
 
 view:
-	open ${FILE}.pdf
+	$(OPEN) ${FILE}.pdf
 
 # all dependce tracking taking care of by Latexmk
 fast:
@@ -86,3 +96,7 @@ publish:
 bib-extract:
 	echo "EXTRACTING ALL USED CITATIONS INTO A BIB FILE"
 	bibtool -x ${FILE}.aux -o ${FILE}.bib
+
+skim:
+	echo $(DEFAULT)
+	open -a /Applications/skim.app $(DEFAULT).pdf
