@@ -3,6 +3,13 @@ report.pdf
 __pycache__/
 *.py[cod]
 *$py.class
+*.cut
+*.aux
+*.bbl
+*.blg
+*.fls
+*.out
+*.synctex.*
 
 # C extensions
 *.so
