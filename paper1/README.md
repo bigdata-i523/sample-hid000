@@ -52,7 +52,7 @@ approval.
 Compiling the Review
 --------------------
 
-Once your paper has been reviewed you will find a review.tx, a
+Once your paper has been reviewed you will find a review.tex, a
 issue.tex and a bibtex-error.tex file in your directory. With these
 files you can create the review.pdf file with the command
 
