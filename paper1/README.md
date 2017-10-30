@@ -18,13 +18,32 @@ We included a simple Makefile in the directory and if you have LaTeX
 properly installed you can use it from commandline to create the
 report.pdf:
 
-    make report.pdf
+    make
 
 Please remember that you MUST NOT commit the report.pdf file to the
 reporsitory. If we detect thsi we will remove it and do not review
 your paper. This is to avoid that students submit papers that actually
 do not compile in LaTeX. Make sure you paper always compiles.
 
+This will also generate a simple check on some common issues. The 
+log file is located in 
+
+    report-latex.log
+    
+After the compilation is over.
+
+Editing the report
+------------------
+
+Unfortunately, we noticed that some students modified our report template 
+uneccesarrily. In orde to allow us to undo these changes easily, we have 
+separated the format from the content of the file.
+
+Thus you compile report.tex, but you just change your text in content.tex. 
+As in this format content.tex will be included in the report.tex automatically
+it is easier to manage.
+
+    
 Adding your own packages
 ------------------------
 
