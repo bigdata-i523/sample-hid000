@@ -39,6 +39,10 @@ simple:
 	pdflatex ${FLAGS} ${FILE} 
 
 
+check:
+	@wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/check.py -O check.py
+	@python check.py
+
 bibtex:
 	@echo 
 	@echo "bibtext report" 
