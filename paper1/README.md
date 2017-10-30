@@ -8,8 +8,15 @@ students have the same format template.
 To make it simple we split the content and the format into two
 different files.
 
-The content is in content.tex which you may edit, The template is in
-report.tex, which you are not allowed to edit.
+The content is in 
+
+    content.tex 
+    
+which you may edit, The template is in
+
+    report.tex
+
+which you are not allowed to edit.
 
 Compiling the report
 --------------------
@@ -31,17 +38,6 @@ log file is located in
     report-latex.log
     
 After the compilation is over.
-
-Editing the report
-------------------
-
-Unfortunately, we noticed that some students modified our report template 
-uneccesarrily. In orde to allow us to undo these changes easily, we have 
-separated the format from the content of the file.
-
-Thus you compile report.tex, but you just change your text in content.tex. 
-As in this format content.tex will be included in the report.tex automatically
-it is easier to manage.
 
     
 Adding your own packages
