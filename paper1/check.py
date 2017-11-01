@@ -140,12 +140,14 @@ def bibtex(filename):
                 print (counter, ": ", label, ": do not use _ in labels:", sep = '')
             if ' ' in label:
                 print (counter, ": ", label, ": do not use ' ' (spaces) in labels:", sep='')
-
     print()
     print('bibtex errors')
     print()
     output = shell('bibtex {filename}'.format(filename=filename))
     print ('\n'.join(output[3:]))
+
+def bibtex_empty_fields()                
+    banner()
     print()
     print('entries in general should not be empty to trick bibtex')
     print()
