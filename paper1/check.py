@@ -46,7 +46,7 @@ def find(filename, c, erroron=True):
             counter += 1
             if c in line:
                 found = True
-                print (counter, ": ", line, sep="")
+                print (counter, ": ", line.strip(), sep="")
     print ("passed:", erroron != found)
         
 def floats(filename):
