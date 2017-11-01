@@ -8,8 +8,15 @@ students have the same format template.
 To make it simple we split the content and the format into two
 different files.
 
-The content is in content.tex which you may edit, The template is in
-report.tex, which you are not allowed to edit.
+The content is in 
+
+    content.tex 
+    
+which you may edit, The template is in
+
+    report.tex
+
+which you are not allowed to edit.
 
 Compiling the report
 --------------------
@@ -18,13 +25,21 @@ We included a simple Makefile in the directory and if you have LaTeX
 properly installed you can use it from commandline to create the
 report.pdf:
 
-    make report.pdf
+    make
 
 Please remember that you MUST NOT commit the report.pdf file to the
 reporsitory. If we detect thsi we will remove it and do not review
 your paper. This is to avoid that students submit papers that actually
 do not compile in LaTeX. Make sure you paper always compiles.
 
+This will also generate a simple check on some common issues. The 
+log file is located in 
+
+    report-latex.log
+    
+After the compilation is over.
+
+    
 Adding your own packages
 ------------------------
 
@@ -37,7 +52,7 @@ approval.
 Compiling the Review
 --------------------
 
-Once your paper has been reviewed you will find a review.tx, a
+Once your paper has been reviewed you will find a review.tex, a
 issue.tex and a bibtex-error.tex file in your directory. With these
 files you can create the review.pdf file with the command
 
