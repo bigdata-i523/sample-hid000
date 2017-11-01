@@ -149,7 +149,7 @@ def bibtex(filename):
 def bibtex_empty_fields(filename)               
     banner()
     print()
-    print('entries in general should not be empty to trick bibtex')
+    print('entries in general should not be empty in bibtex')
     print()
     find(filename + ".bib", '""')
     
