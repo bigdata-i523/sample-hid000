@@ -146,6 +146,11 @@ def bibtex(filename):
     print()
     output = shell('bibtex {filename}'.format(filename=filename))
     print ('\n'.join(output[3:]))
+    print()
+    print('entries in general should not be empty to trick bibtex')
+    print()
+    find(filename + ".bib", '""')
+    
 
 def is_ascii(s):
     return all(ord(c) < 128 for c in s)
