@@ -146,7 +146,7 @@ def bibtex(filename):
     output = shell('bibtex {filename}'.format(filename=filename))
     print ('\n'.join(output[3:]))
 
-def bibtex_empty_fields(filename)               
+def bibtex_empty_fields(filename):            
     banner()
     print()
     print('entries in general should not be empty in bibtex')
