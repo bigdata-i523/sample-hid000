@@ -3,7 +3,7 @@ import sys
 import os
 import os.path
 import yaml
-
+import textwrap
 
 def readme(filename):
     try:
@@ -49,6 +49,7 @@ def wordcount(content, owner):
 
 def find(filename, c, erroron=True):
     banner(c)
+
     counter = 1
     found = False
     with open(filename, "r") as f:
@@ -56,7 +57,11 @@ def find(filename, c, erroron=True):
             counter += 1
             if c in line:
                 found = True
-                print (counter, ": ", line.strip(), sep="")
+                prefix = str(counter) +": " 
+                wrapper = textwrap.TextWrapper(initial_indent=prefix, width=70,
+                               subsequent_indent=' '*len(prefix))
+                print (wrapper.fill(line.strip()))
+                print()
     print ("passed:", erroron != found)
         
 def floats(filename):
