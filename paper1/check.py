@@ -38,14 +38,23 @@ def banner(msg=""):
 
 def wordcount(content, owner):
     banner()
+
     wc = [0,0,0]
     wc[0] = execute('wc -w ' + content)[0].strip().split()[0]
     wc[1] = execute('ps2ascii report.pdf | wc -w')[0].strip()
     wc[2] = execute('wc -w report.bib')[0].strip().split()[0]
 
-    print ('wc', owner['hid'], owner['kind'], wc[0], content)
-    print ('wc', owner['hid'], owner['kind'], wc[1], 'report.pdf')
-    print ('wc', owner['hid'], owner['kind'], wc[2], 'report.bib')
+    try:
+        r = execute("mdls -name kMDItemNumberOfPages report.pdf")
+        pages = r[0].split("=")[1].strip()
+        print (pages)
+    except Exception as e:
+        print (e)
+        pages = 0
+        
+    print ('wc', owner['hid'], owner['kind'], pages, wc[0], content)
+    print ('wc', owner['hid'], owner['kind'], pages, wc[1], 'report.pdf')
+    print ('wc', owner['hid'], owner['kind'], pages, wc[2], 'report.bib')
 
 def find(filename, c, erroron=True):
     banner(c)
@@ -191,7 +200,7 @@ else:
 
 data = readme('../README.yml')
 kind = os.path.basename(os.getcwd())
-
+    
 data['owner']['kind'] = kind
 
 
