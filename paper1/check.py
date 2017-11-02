@@ -40,9 +40,19 @@ def wordcount(content, owner):
     banner()
 
     wc = [0,0,0]
-    wc[0] = execute('wc -w ' + content)[0].strip().split()[0]
-    wc[1] = execute('ps2ascii report.pdf | wc -w')[0].strip()
-    wc[2] = execute('wc -w report.bib')[0].strip().split()[0]
+    try:
+        wc[0] = execute('wc -w ' + content)[0].strip().split()[0]
+    except:
+        pass
+    try:
+        wc[1] = execute('ps2ascii report.pdf | wc -w')[0].strip()
+    except:
+        pass
+    try:
+        wc[2] = execute('wc -w report.bib')[0].strip().split()[0]
+    except:
+        pass
+
 
     try:
         r = execute("mdls -name kMDItemNumberOfPages report.pdf")
@@ -61,16 +71,20 @@ def find(filename, c, erroron=True):
 
     counter = 1
     found = False
-    with open(filename, "r") as f:
-        for line in f:
-            counter += 1
-            if c in line:
-                found = True
-                prefix = str(counter) +": " 
-                wrapper = textwrap.TextWrapper(initial_indent=prefix, width=70,
-                               subsequent_indent=' '*len(prefix))
-                print (wrapper.fill(line.strip()))
-                print()
+    try:
+        with open(filename, "r") as f:
+            for line in f:
+                counter += 1
+                if c in line:
+                    found = True
+                    prefix = str(counter) +": " 
+                    wrapper = textwrap.TextWrapper(initial_indent=prefix, width=70,
+                                subsequent_indent=' '*len(prefix))
+                    print (wrapper.fill(line.strip()))
+                    print()
+    except:
+        print ("ERROR reading", filename)
+        return
     print ("passed:", erroron != found)
         
 def floats(filename):
@@ -147,8 +161,12 @@ def bibtex(filename):
     print()
     print ('label errors')
     print()
-    with open("{filename}.bib".format(filename=filename), 'r') as f:
-        content = f.readlines()
+    try:
+        with open("{filename}.bib".format(filename=filename), 'r') as f:
+            content = f.readlines()
+    except:
+        print ("ERROR reading report.bib")
+        return
     counter = 0
     for line in content:
         counter += 1
