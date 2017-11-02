@@ -2,8 +2,18 @@ import subprocess
 import sys
 import os
 import os.path
+import yaml
 
 
+def readme(filename):
+    try:
+        with open(filename, 'r') as f:
+            content = yaml.load(f)
+    except Exception as e:
+        print (e)
+        content = None
+    return content
+        
 def execute(command):
     output=subprocess.check_output(command, stderr=sys.stdout, shell=True).decode("utf-8").splitlines()
     return output
@@ -26,16 +36,16 @@ def banner(msg=""):
     print (name.strip(), msg)
     print (79 * "=")
 
-def wordcount(content):
+def wordcount(content, owner):
     banner()
     wc = [0,0,0]
     wc[0] = execute('wc -w ' + content)[0].strip().split()[0]
     wc[1] = execute('ps2ascii report.pdf | wc -w')[0].strip()
     wc[2] = execute('wc -w report.bib')[0].strip().split()[0]
 
-    print ('wc', wc[0], content)
-    print ('wc', wc[1], 'report.pdf')
-    print ('wc', wc[2], 'report.bib')
+    print ('wc', owner['hid'], owner['kind'], wc[0], content)
+    print ('wc', owner['hid'], owner['kind'], wc[1], 'report.pdf')
+    print ('wc', owner['hid'], owner['kind'], wc[2], 'report.bib')
 
 def find(filename, c, erroron=True):
     banner(c)
@@ -116,7 +126,7 @@ def floats(filename):
 def yamlcheck(filename):
     banner()
     os.system('yamllint ../README.yml')
-
+    
 
 def bibtex(filename):
     banner()
@@ -172,12 +182,40 @@ def ascii(filename):
 if os.path.isfile('content.tex'):
     filename = 'content.tex'
 else:
-    filename = 'report.tex'    
-                
-wordcount(filename)
+    filename = 'report.tex'
+
+data = readme('../README.yml')
+kind = os.path.basename(os.getcwd())
+
+data['owner']['kind'] = kind
+
+
+print('Compliance Report')
+print(80* '=')
+print()
+print('name:', data['owner']['name'])
+print('hid: ', data['owner']['hid'])
+
+try:
+    print('paper1:', data['paper1']['status'])
+except:
+    pass
+
+try:
+    print('paper2:', data['paper2']['status'])
+except:
+    pass
+
+try:
+    print('project:', data['project']['status'])
+except:
+    pass
+
+
+yamlcheck('../README.yml')    
+wordcount(filename, data['owner'])
 find(filename, '"')
 find(filename, 'footnote')
-yamlcheck('../README.yml')
 find("report.tex", "input{format/i523}", erroron=False)
 floats(filename)
 bibtex('report')
