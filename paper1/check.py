@@ -152,13 +152,12 @@ def bibtex(filename):
     counter = 0
     for line in content:
         counter += 1
-        if "@" in line:
+        if line.strip().startswith("@"):
             if '@String' in line or '@Comment' in line:
                 continue
             if not ',' in line:
                 print (counter, ": you forgot the , after a bibtex label ")
                 return
-
             label = line.split("{")[1].strip()[:-1]
             if '_' in label:
                 print (counter, ": ", label, ": do not use _ in labels:", sep = '')
