@@ -12,9 +12,8 @@ paper1:
    title: Big Data and Edge Computing
    abstract: >
        We showcase this and that and the other.
-   url: https://github.com/bigdata-i523/sample-hid000/paper1/report.pdf
-   type: latex
-   status: 20%
+   url: https://github.com/bigdata-i523/sample-hid000/paper1/
+   status: Nov 20 17 20%
    chapter: TBD   
 paper2:
    author: 
@@ -25,9 +24,8 @@ paper2:
    abstract: >
       We showcase this and that and the other.
       in regards to abc
-   url: https://github.com/bigdata-i523/sample-hid000/paper2/report.pdf
-   type: word
-   status: 10%
+   url: https://github.com/bigdata-i523/sample-hid000/paper2/
+   status: Nov 30 17 10%
    chapter: TBD
 project:
    type: project
@@ -39,7 +37,7 @@ project:
    abstract: >
        We showcase tis and that and the other
        and another line.
-   url: https://github.com/bigdata-i523/sample-pid000/project/report.pdf
-   type: latex
-   status: in progress
+   url: https://github.com/bigdata-i523/sample-hid000/project/
+   type: project
+   status: Dec 04 17 0%
    
