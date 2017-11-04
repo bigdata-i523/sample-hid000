@@ -222,7 +222,7 @@ def bibtex(filename):
                 return
             label = line.split("{")[1].strip()[:-1]
             if '_' in label:
-                print (counter, ": ", label, ": do not use _ in labels:", sep = '')
+                print (counter, ": ", label, ": do not use underscore in labels:", sep = '')
             if ' ' in label:
                 print (counter, ": ", label, ": do not use ' ' (spaces) in labels:", sep='')
     print()
