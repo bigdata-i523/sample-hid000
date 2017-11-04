@@ -32,11 +32,15 @@ def execute(command):
     output=subprocess.check_output(command, stderr=sys.stdout, shell=True).decode("utf-8").splitlines()
     return output
 
+
 def shell(command):
     try:
-        output = subprocess.check_output(command, shell=True, stderr=sys.stdout)
+        output = subprocess.check_output(
+            "{command}; exit 0".format(command=command),
+            stderr=subprocess.STDOUT,
+            shell=True)
+        #output = subprocess.check_output(command, shell=True, stderr=sys.stdout)
         lines = output.decode("utf-8").splitlines()
-
     except Exception as e:
         lines = str(e)
 
@@ -84,6 +88,14 @@ def print_numbered_line(counter, line):
                                     subsequent_indent=' '*len(prefix))
     print (wrapper.fill(line.strip()))
 
+    
+def print_numbered_line_nostrip(counter, line):
+    prefix = str(counter) +": "     
+    wrapper = textwrap.TextWrapper(initial_indent=prefix, width=70,
+                                    subsequent_indent=' '*len(prefix))
+    print (wrapper.fill(line))
+
+    
 
     
 def find(filename, c, erroron=True):
@@ -129,7 +141,8 @@ def floats(filename):
                 
             if c in line:
                 counter[c] += 1
-                print (linecounter, ": ", line.strip("\n"), sep="")
+                #print (linecounter, ": ", line.strip("\n"), sep="")
+                print_numbered_line(linecounter, line)
 
     # rename
     found = {
@@ -146,7 +159,7 @@ def floats(filename):
         print (entry, found[entry])
     print()
     
-    print ( found['figures'] + found['tables'] >= found['refs'], ': ref check passed: (refs >= figures + tables)')
+    print (found['figures'] + found['tables'] >= found['refs'], ': ref check passed: (refs >= figures + tables)')
     print (found['figures'] + found['tables'] >= found['labels'], ': label check passed: (refs >= figures + tables)')
     print (found['figures'] >= found['includegraphics'], ': include graphics passed: (figures >= includegraphics)')
     print (found['refs'] >= found['labels'], ': check if all figures are refered to: (refs >= labels)')
@@ -208,7 +221,8 @@ def bibtex(filename):
     print('bibtex errors')
     print()
     output = shell('bibtex {filename}'.format(filename=filename))
-    print ('\n'.join(output[3:]))
+    #print (output)
+    print ('\n'.join(output))
 
 def bibtex_empty_fields(filename):            
     banner()
