@@ -186,6 +186,14 @@ def floats(filename):
         msg = '-> labels or refs used wrong'
     print('passed:', passing, msg)
 
+    print()
+    print("When using figures use columnwidth")
+    print("[width=1.0\columnwidth]")
+    print("do not cahnge the number to a smaller fraction")
+    print()
+    
+    find(filename, 'textwidth')
+    
                 
 def yamlcheck(filename):
     banner()
