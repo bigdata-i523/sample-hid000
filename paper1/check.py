@@ -5,6 +5,20 @@ import os.path
 import yaml
 import textwrap
 
+def SECTION(name):
+    print()
+    print(80* '=')
+    print(name)
+    print(80* '=')
+    print()
+
+def SUBSECTION(name, msg):
+    print()
+    print(name, msg)
+    print(80* '-')
+    print()
+
+
 def readme(filename):
     try:
         with open(filename, 'r') as f:
@@ -32,9 +46,7 @@ def shell(command):
 
 def banner(msg=""):
     name = sys._getframe(1).f_code.co_name
-    print ()
-    print (name.strip(), msg)
-    print (79 * "=")
+    SUBSECTION(name.strip(), msg)
 
 def wordcount(content, owner):
     banner()
@@ -66,6 +78,14 @@ def wordcount(content, owner):
     print ('wc', owner['hid'], owner['kind'], pages, wc[1], 'report.pdf')
     print ('wc', owner['hid'], owner['kind'], pages, wc[2], 'report.bib')
 
+def print_numbered_line(counter, line):
+    prefix = str(counter) +": "     
+    wrapper = textwrap.TextWrapper(initial_indent=prefix, width=70,
+                                    subsequent_indent=' '*len(prefix))
+    print (wrapper.fill(line.strip()))
+
+
+    
 def find(filename, c, erroron=True):
     banner(c)
 
@@ -129,6 +149,7 @@ def floats(filename):
     print ( found['figures'] + found['tables'] >= found['refs'], ': ref check passed: (refs >= figures + tables)')
     print (found['figures'] + found['tables'] >= found['labels'], ': label check passed: (refs >= figures + tables)')
     print (found['figures'] >= found['includegraphics'], ': include graphics passed: (figures >= includegraphics)')
+    print (found['refs'] >= found['labels'], ': check if all figures are refered to: (refs >= labels)')
 
     print()
     print('Label/ref check')
@@ -139,10 +160,12 @@ def floats(filename):
         linecounter += 1
         for i in range(1,top+1):
             if "igure {i}".format(i=i) in line:
-                print (linecounter, ": ", line, sep='')
+                print_numbered_line(linecounter, line)
+                # print (linecounter, ": ", line, sep='')
                 passing = False
             if "able {i}".format(i=i) in line:
-                print (linecounter, ": ", line, sep='')
+                print_numbered_line(linecounter, line)                
+                # print (linecounter, ": ", line, sep='')
                 passing = False
     if passing:
             msg = ''
@@ -221,8 +244,7 @@ kind = os.path.basename(os.getcwd())
 data['owner']['kind'] = kind
 
 
-print('Compliance Report')
-print(80* '=')
+SECTION('Compliance Report')
 print()
 print('name:', data['owner']['name'])
 print('hid: ', data['owner']['hid'])
@@ -252,3 +274,12 @@ floats(filename)
 bibtex('report')
 bibtex_empty_fields('report')                
 ascii(filename)
+
+SECTION("The following tests are optional")
+
+print("Tip: newlines can often be replaced just by an empty line")
+
+find(filename, 'newline')
+
+print("cites should have a space before \cite{} but not before the {")
+find(filename, 'cite {')
