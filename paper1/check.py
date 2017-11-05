@@ -194,7 +194,41 @@ def floats(filename):
     
     find(filename, 'textwidth')
     
-                
+def below_check(filename):
+    banner()
+
+    def emphasize(word):
+        return "**" + word + "**"
+    
+    def test(word1, word2, line, linecounter):
+        if word1 in line and word2 in line.lower():
+            print()
+            print ("WARNING: {word1} and {word2} may be used improperly".format(word1=word1, word2=word2))
+            print()
+            output = str(line)
+            output.replace(word1, word1)
+            output.replace(word2, word2)
+            print_numbered_line(linecounter, output)
+            found = True
+
+    
+    linecounter = 1
+    found = False
+    with open(filename, 'r') as f:
+        content = f.readlines()
+        
+    for line in content:
+        linecounter += 1
+        test("table", "below", line, linecounter)
+        test("table", "above", line, linecounter)
+        test("figure", "below", line, linecounter)
+        test("figure", "above", line, linecounter)
+        test("code", "below", line, linecounter)
+        test("code", "above", line, linecounter)
+        test("algorithm", "below", line, linecounter)
+        test("algorithm", "above", line, linecounter)
+
+    
 def yamlcheck(filename):
     banner()
     os.system('yamllint ../README.yml')
@@ -293,6 +327,7 @@ find(filename, '"')
 find(filename, 'footnote')
 find("report.tex", "input{format/i523}", erroron=False)
 floats(filename)
+below_check(filename)
 bibtex('report')
 bibtex_empty_fields('report')                
 ascii(filename)
