@@ -55,11 +55,11 @@ This sample has some advanced features that may not be offered by
 other \LaTeX frameworks. All of these features are accessible at this
 time throug a makefile. These advanced features are optional and
 introduce a number of automated tests for the document. Such tests are
-executed through a MAkefile. Such makefiles acan be executed on LinuX
+executed through a Makefile. Such makefiles acan be executed on LinuX
 or OSX. They are not available on sharelatex. We are not aware if they
 can be executed on Windows.
 
-The document is organized in a a reporsitory, that needs to be
+The document is organized in a a repository, that needs to be
 replicated into your computer. Please be mindful about the
 capitalization. We only use lower case for any file in our directory
 and we never use spaces or non ASCI characters.
@@ -67,25 +67,43 @@ and we never use spaces or non ASCI characters.
 We have the following files:
 
 \begin{verbatim}
-format/i523.tex
-format/i524.tex
+format/submission.tex
 fromat/final.tex
 content.tex
 report.tex
+report.bib
 \end{verbatim}
 
+We separated the content from the report format into two different
+files, as we found that students in the past manipulated our format to
+circumvent our page limitation ans artificially manipulated spacing and
+other unnecessary things that we from now on consider as cheating.
+Thus we like you not to modify the report.tex file at all and if you
+have improvement suggestions to discuss them with us. These
+improvements will than be integrated first into this document so they
+are available to all students. Only after they are integrated, you may
+use them in your report. 
+
+Thus the only file you are allowed to modify is the content.tex file
+and the report.bib bibliography files.
+
+Images and tables are supposed to be placed in floats. You can place
+them with \verb|[htb]| at any place in the document. However, we will
+for the submission force the placement at the end of the
+document. Please keep in mind that tables and figurs and programs
+that are also to be placed in figures do not count towards the paper length.
 
 \section{Introduction}
 
 Put here an introduction about your topic. 
-We just need one sample refernce so the paper compiles in LaTeX so we
+We just need one sample reference so the paper compiles in LaTeX so we
 put it here \cite{editor00}.
 
 \section{figures}
 
 In Figure \ref{f:fly} we show a fly. Please note that because we use
 just columwidth that the size of the figure will change to the
-columnwidth of the paper once we change the layout to final. CHnaging
+columnwidth of the paper once we change the layout to final. Changing
 the layout to final should not be done by you. All figures will be
 listed at the end. Please do not use phrases such as as shown in the
 figure below.
@@ -98,7 +116,7 @@ figure below.
 When copying the example, please do not check in the images from the
 examples into your images directory as you will not need them for your
 paper. Instead use images that you like to include. If you do not have
-any images, do not dreate the images folder.
+any images, do not create the images folder.
 
 \section{Tables}
 
@@ -107,7 +125,8 @@ In case you need to create tables, you can do this with online tools
 \url{https://www.tablesgenerator.com/} or other such tools (please
 google for them). They even allow you to manage tables as CSV.
 
-or generate them by hand while using the provided template in Table\ref{t:mytable}. Not ethat
+or generate them by hand while using the provided template in Table
+\ref{t:mytable}. Note that
 the caption is before the tabular environment.
 
 \begin{table}[htb]
@@ -133,7 +152,7 @@ Do not use Figure 1 user the ref for the figure while using its label
 \section{Footnotes}
 
 Footnotes must be avoided in papers. All URLs must be included as full
-refernces/citations and used with the \verb|\cite| command
+references and citations and used with the \verb|\cite| command
 \footnote{do not use footnotes}.
 
 
@@ -142,9 +161,19 @@ refernces/citations and used with the \verb|\cite| command
 If you like to see a more elaborate example, please look at
 report-long.tex. 
 
+\section{Plagiarism}
+
+The class includes a section about plagiarism which you must adhere
+to. Copying text without proper citation is considered cheating and we
+will assign the grade ``F'' for the paper. It is in your
+responsibility to make sure plagiarism does not occur. Please be aware
+that our checks are better than the once provided by turnitin or other
+online checkers. Excuses such as ``I did not have time'' or ``I
+forgot'' can not apply as you must have enough time and must not forget.
+
 \section{Conclusion}
 
-Put here an conclusion. Conlcusions and abstracts must not have any
+Put here an conclusion. Conclusion and abstracts must not have any
 citations in the section.
 
 
@@ -168,8 +197,8 @@ proceedings script we have does not allow this.
 When you submit the paper you need to address each of the items in the
 issues.tex file and verify that you have done them. Please do this
 only at the end once you have finished writing the paper. To d this
-cange TODO with DONE. However if you check something on with DONE, but
-we find you actually have not executed it correcty, you will receive
+change TODO with DONE. However if you check something on with DONE, but
+we find you actually have not executed it correctly, you will receive
 point deductions. Thus it is important to do this correctly and not
 just 5 minutes before the deadline. It is better to do a late
 submission than doing the check in haste. 
