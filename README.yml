@@ -12,7 +12,9 @@ paper1:
         - 001
     title: Big Data and Edge Computing
     abstract: >
-        We showcase this and that and the other. ksjdhsjlhd sdhdjlkashdj kahsdjk ahsd lkjshdjkshdljksahdls j
+        We showcase this and that and the other. And must 
+        be small than 80 characters so that it is easy to 
+        read.
     url: https://github.com/bigdata-i523/sample-hid000/paper1/
     status: Nov 20 17 20%
     chapter: TBD
