@@ -14,7 +14,7 @@ content = []
 counter = 0
 
 # Read input file
-with open('README.md', 'r') as f:
+with open('README.yml', 'r') as f:
     lines = f.readlines()
 
 
@@ -31,14 +31,7 @@ content = []
 
 # Loop through all the lines
 for line in lines:
-    counter = counter + 1
-
-    if not in_yaml and line.startswith('```'):
-        in_yaml = True
-    elif in_yaml and line.startswith("```"):
-        in_yaml = False
-    elif in_yaml:
-        content.append(line)
+    content.append(line)
         
 s = '\n'.join(content)
 
